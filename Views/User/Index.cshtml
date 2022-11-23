@@ -1,0 +1,54 @@
+﻿@model List<UserViewModel>
+
+
+
+<table class="table tbl-primary">
+    <thead>
+        <tr>
+            <th>
+                UserName
+            </th>
+            <th>
+                EmailId
+            </th>
+            <th>
+                MobileNumber
+            </th>
+            <th>
+                Address
+            <th>
+                Age
+            <th>
+                Gender
+            </th>
+            <th>
+                Action
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+    </thead>
+
+
+    <tbody>
+        @{
+            foreach(var userVM in Model)
+            {
+                <tr>
+                <td>@userVM.UserName</td>
+                 <td>@userVM.EmailId</td>
+                  <td>@userVM.MobileNumber</td>
+                   <td>@userVM.Address</td>
+                    <td>@userVM.Age</td>
+                     <td>@userVM.Gender</td>
+                     <td> <a asp-action="Update" asp-controller="User"  asp-route-id="@userVM.Id" >Update</a>  </td>
+                      <td> <a asp-action="Delete" asp-controller="User" asp-route-id="@userVM.Id">Delete</a>  </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+<a
+ <td> <a asp-action="Registration" asp-controller="User">Registar user</a>  </td>
