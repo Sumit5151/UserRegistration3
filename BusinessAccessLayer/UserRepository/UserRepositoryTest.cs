@@ -3,11 +3,11 @@ using UserRegistration3.Models;
 
 namespace UserRegistration3.BusinessAccessLayer.UserRepository
 {
-    public class UserRepository : IUserRepository
+    public class UserRepositoryTest : IUserRepository
     {
         private readonly BrightDb2Context db;
 
-        public UserRepository(BrightDb2Context _db)
+        public UserRepositoryTest(BrightDb2Context _db)
         {
             this.db = _db;
         }
@@ -96,10 +96,7 @@ namespace UserRegistration3.BusinessAccessLayer.UserRepository
                 db.SaveChanges();
             }
         }
-        public void NewFunciotn(int id)
-        {
 
-        }
 
     }
 }

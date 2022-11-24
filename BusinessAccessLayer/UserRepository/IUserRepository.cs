@@ -11,5 +11,6 @@ namespace UserRegistration3.BusinessAccessLayer.UserRepository
         void Delete(int id);
         UserViewModel GetUserById(int id);
 
+        void NewFunciotn(int id);
     }
 }

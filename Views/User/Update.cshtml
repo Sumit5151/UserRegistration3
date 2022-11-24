@@ -1,12 +1,14 @@
 ﻿@model UserViewModel;
 
   
+  
+   
         <h1>User Registration</h1>
 
         <div class="container">             
 
             <div class="row">
-                <form method="post" asp-action="Registration" asp-controller="User">
+                <form method="post" asp-action="Update" asp-controller="User">
                 <div class="col-md-6  offset-3">
                      <div asp-validation-summary="All" class="text-danger"></div>
                     <div class="form-group">
@@ -16,12 +18,7 @@
                     </div>
 
                     
-                     <div class="form-group">
-                        <label asp-for="@Model.Password"></label>
-                        <input type ="password" asp-for="@Model.Password" class="form-control" />
-                         <span asp-validation-for="@Model.Password" class="text-danger"></span>
-                    </div>
-
+                    
 
                     <div class="form-group">
                         <label  asp-for="@Model.EmailId"></label>
@@ -33,14 +30,6 @@
                         <label asp-for="@Model.MobileNumber"></label>
                         <input type ="text" asp-for="@Model.MobileNumber" class="form-control" />
                          <span asp-validation-for="@Model.MobileNumber" class="text-danger"></span>
-                    </div>
-
-
-                    
-                    <div class="form-group">
-                        <label asp-for="@Model.Gender"></label>
-                        <input type ="text" asp-for="@Model.Gender" class="form-control" />
-                         <span asp-validation-for="@Model.Gender" class="text-danger"></span>
                     </div>
 
                      <div class="form-group">
