@@ -96,10 +96,7 @@ namespace UserRegistration3.BusinessAccessLayer.UserRepository
                 db.SaveChanges();
             }
         }
-        public void NewFunciotn(int id)
-        {
-
-        }
+        
 
     }
 }
