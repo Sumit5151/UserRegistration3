@@ -1,8 +1,6 @@
 ﻿@model UserViewModel;
 
   
-  
-   
         <h1>User Registration</h1>
 
         <div class="container">             
@@ -12,17 +10,22 @@
                 <div class="col-md-6  offset-3">
                      <div asp-validation-summary="All" class="text-danger"></div>
                     <div class="form-group">
-                        <label  asp-for="@Model.UserName"></label>
-                        <input type ="text" asp-for="@Model.UserName" class="form-control" />
-                        <span asp-validation-for="@Model.UserName" class="text-danger"></span>
+                        <label  asp-for="UserName"></label>
+                        <input asp-for="UserName" class="form-control" />
+                        <span asp-validation-for="UserName" class="text-danger"></span>
                     </div>
 
                     
-                    
+                     <div class="form-group">
+                        <label asp-for="Password"></label>
+                        <input asp-for="Password" class="form-control" />
+                         <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+
 
                     <div class="form-group">
                         <label  asp-for="@Model.EmailId"></label>
-                        <input type ="text" asp-for="@Model.EmailId" class="form-control" />
+                        <input type="text" asp-for="@Model.EmailId" class="form-control" />
                          <span asp-validation-for="@Model.EmailId" class="text-danger"></span>
                     </div>
 
@@ -30,6 +33,17 @@
                         <label asp-for="@Model.MobileNumber"></label>
                         <input type ="text" asp-for="@Model.MobileNumber" class="form-control" />
                          <span asp-validation-for="@Model.MobileNumber" class="text-danger"></span>
+                    </div>
+
+
+                    
+                    <div class="form-group">
+                        <label asp-for="@Model.Gender"></label>
+                       @* <input type ="text" asp-for="@Model.Gender" class="form-control" />*@
+                       <select asp-for="Gender" class="form-control" asp-items="new SelectList(ViewBag.GenderOptions)">
+                          <option value="">-Select Gender-</option>
+                       </select>
+                         <span asp-validation-for="@Model.Gender" class="text-danger"></span>
                     </div>
 
                      <div class="form-group">

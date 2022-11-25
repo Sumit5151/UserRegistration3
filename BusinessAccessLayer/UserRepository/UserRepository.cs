@@ -96,7 +96,21 @@ namespace UserRegistration3.BusinessAccessLayer.UserRepository
                 db.SaveChanges();
             }
         }
-        
+
+        //25 Nov 2022
+        public List<string> GetGenderOptions()
+        {
+
+            List<string> genderOptions = new List<string>();
+
+            genderOptions.Add("Male");
+            genderOptions.Add("Female");
+            genderOptions.Add("Other");
+
+            return genderOptions;
+
+
+        }
 
     }
 }

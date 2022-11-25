@@ -27,7 +27,7 @@ namespace UserRegistration3.Models
 
 
         [Required]
-        [RegularExpression(@"^(\+\d{1,2}\s?)?1?\-?\.?\s?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$",ErrorMessage ="Mobile number is not valid")]
+        [RegularExpression(@"^(\+\d{1,2}\s?)?1?\-?\.?\s?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$", ErrorMessage = "Mobile number is not valid")]
         [Display(Name = "Mobile Number")]
         public string? MobileNumber { get; set; }
 
@@ -37,7 +37,7 @@ namespace UserRegistration3.Models
 
 
         [Required]
-        [Range(18,60)]
+        [Range(18, 60)]
         public int? Age { get; set; }
 
 
@@ -45,8 +45,19 @@ namespace UserRegistration3.Models
         [Required]
         public string? Gender { get; set; }
 
-
+        //25 Nov 2022
         [Required]
+        [DataType(DataType.Password)]
+        [StringLength(20, MinimumLength = 8)]
         public string? Password { get; set; }
+
+        [Compare("Password")]
+        [DataType(DataType.Password)]
+        public string? ConfirmPassword { get; set; }
+
+
+        //public List<string> GenderOpitons { get; set;}
+
+        public bool IsTermsAndConditionsChecked { get; set; }
     }
 }

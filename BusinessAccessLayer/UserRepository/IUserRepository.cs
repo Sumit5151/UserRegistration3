@@ -10,7 +10,7 @@ namespace UserRegistration3.BusinessAccessLayer.UserRepository
         void Update(UserViewModel userViewModel);
         void Delete(int id);
         UserViewModel GetUserById(int id);
-
-        
+        //25 Nov 2022
+        List<string> GetGenderOptions();
     }
 }
