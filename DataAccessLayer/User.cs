@@ -20,4 +20,6 @@ public partial class User
     public string? Gender { get; set; }
 
     public string? Password { get; set; }
+
+    public string? PhysicallyChallanged { get; set; }
 }

@@ -59,5 +59,8 @@ namespace UserRegistration3.Models
         //public List<string> GenderOpitons { get; set;}
 
         public bool IsTermsAndConditionsChecked { get; set; }
+
+
+        public string Physicallychallanged { get; set; }
     }
 }

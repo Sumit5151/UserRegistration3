@@ -1,4 +1,5 @@
-﻿using UserRegistration3.Models;
+﻿using UserRegistration3.DataAccessLayer;
+using UserRegistration3.Models;
 
 namespace UserRegistration3.BusinessAccessLayer.UserRepository
 {
@@ -12,5 +13,12 @@ namespace UserRegistration3.BusinessAccessLayer.UserRepository
         UserViewModel GetUserById(int id);
         //25 Nov 2022
         List<string> GetGenderOptions();
+
+        //28 Nov 2022
+        List<DropDownListModel> GetGenderOptionsFromDB();  
+        
+        List<Gender> GetGenderOptionsSimpleWay();
+
+        List<string> GetPhysicallyChallangedOptions();
     }
 }

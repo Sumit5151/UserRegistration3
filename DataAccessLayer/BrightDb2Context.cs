@@ -17,6 +17,8 @@ public partial class BrightDb2Context : DbContext
 
     public virtual DbSet<Employee> Employees { get; set; }
 
+    public virtual DbSet<Gender> Genders { get; set; }
+
     public virtual DbSet<Product> Products { get; set; }
 
     public virtual DbSet<Student> Students { get; set; }
@@ -39,6 +41,17 @@ public partial class BrightDb2Context : DbContext
                 .IsUnicode(false);
             entity.Property(e => e.Name)
                 .HasMaxLength(100)
+                .IsUnicode(false);
+        });
+
+        modelBuilder.Entity<Gender>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Gender__3214EC07DCD34A75");
+
+            entity.ToTable("Gender");
+
+            entity.Property(e => e.Name)
+                .HasMaxLength(10)
                 .IsUnicode(false);
         });
 
@@ -90,6 +103,9 @@ public partial class BrightDb2Context : DbContext
                 .IsUnicode(false);
             entity.Property(e => e.Password)
                 .HasMaxLength(100)
+                .IsUnicode(false);
+            entity.Property(e => e.PhysicallyChallanged)
+                .HasMaxLength(10)
                 .IsUnicode(false);
             entity.Property(e => e.UserName)
                 .HasMaxLength(100)

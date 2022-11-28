@@ -23,7 +23,7 @@
                 </div>
 
                 //25 Nov 2022
-                 <div class="form-group">
+                <div class="form-group">
                     <label asp-for="ConfirmPassword"></label>
                     <input asp-for="ConfirmPassword" class="form-control" />
                     <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
@@ -44,19 +44,79 @@
 
 
                 //25 Nov 2022
-                <div class="form-group">
+                @*<div class="form-group">
                     <label asp-for="@Model.Gender"></label>
 
                     <select asp-for="@Model.Gender" class="form-control" asp-items="new SelectList(ViewBag.GenderOptions)">
-                        <option value="">-Select Gender-</option>
+                    <option value="">-Select Gender-</option>
                     </select>
                     <span asp-validation-for="@Model.Gender" class="text-danger"></span>
+                    </div>*@
+
+
+                @* <div class="form-group">
+                    <label asp-for="@Model.Gender"></label>
+
+                    <select asp-for="@Model.Gender" class="form-control" asp-items="ViewBag.GenderOptions">
+                    <option value="">-Select Gender-</option>
+                    </select>
+                    <span asp-validation-for="@Model.Gender" class="text-danger"></span>
+                    </div>*@
+
+
+
+                <div class="form-group">
+                    <label asp-for="@Model.Gender"></label>
+
+
+
+                    <select asp-for="@Model.Gender" class="form-control">
+                        <option value="">-Select Gender-</option>
+
+                        @{
+                            foreach (var gender in ViewBag.GenderOptions)
+                            {
+                                <option value="@gender.Id">@gender.Name</option>
+                            }
+                        }
+
+                    </select>
+
+                    <span asp-validation-for="@Model.Gender" class="text-danger"></span>
                 </div>
+
+
+
+
+                <div class="form-group">
+                    Physically Challanged
+                    @{
+                        foreach (var item in ViewBag.PhysicallyChallangedOptions)
+                        {
+                            <label asp-for="Physicallychallanged">
+                                <input type="radio" name="Physicallychallanged" value="@item">
+                                @item
+                            </label>
+
+                        }
+                    }
+
+
+
+
+
+
+                    <span asp-validation-for="@Model.Age" class="text-danger"></span>
+                </div>
+
+
+
 
                 <div class="form-group">
                     <label asp-for="@Model.Address"></label>
                     <input asp-for="@Model.Address" class="form-control" />
                 </div>
+
 
                 <div class="form-group">
                     <label asp-for="@Model.Age"></label>

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using UserRegistration3.BusinessAccessLayer.UserRepository;
 using UserRegistration3.Models;
 
@@ -26,7 +27,17 @@ namespace UserRegistration3.Controllers
         [HttpGet]
         public IActionResult Registration()
         {
-            ViewBag.GenderOptions = userRepository.GetGenderOptions();
+            //ViewBag.GenderOptions = userRepository.GetGenderOptions();
+            //28 Nov 2022
+            //var genders = userRepository.GetGenderOptionsFromDB();
+            //ViewBag.GenderOptions = new SelectList(genders, "Id", "Text");
+
+            ViewBag.GenderOptions = userRepository.GetGenderOptionsSimpleWay();
+
+            ViewBag.PhysicallyChallangedOptions = userRepository.GetPhysicallyChallangedOptions();
+
+
+
             ViewData["Title"] = "Registration";
             UserViewModel userViewModel = new UserViewModel();
 
@@ -53,14 +64,21 @@ namespace UserRegistration3.Controllers
                 return RedirectToAction(nameof(Index));
             }
             //25 Nov 2022
-            ViewBag.GenderOptions = userRepository.GetGenderOptions();
+            //ViewBag.GenderOptions = userRepository.GetGenderOptions();
+            //28 Nov 2022
+            var genders = userRepository.GetGenderOptionsFromDB();
+            ViewBag.GenderOptions = new SelectList(genders, "Id", "Text");
             return View(userViewModel);
         }
 
         [HttpGet]
         public IActionResult Update(int id)
         {//25 Nov 2022
-            ViewBag.GenderOptions = userRepository.GetGenderOptions();
+            //ViewBag.GenderOptions = userRepository.GetGenderOptions();
+            var genders = userRepository.GetGenderOptionsFromDB();
+
+            //28 Nov 2022
+            ViewBag.GenderOptions = new SelectList(genders, "Id", "Text");
             UserViewModel userViewModel = userRepository.GetUserById(id);
 
             return View(userViewModel);
